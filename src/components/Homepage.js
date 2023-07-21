@@ -26,7 +26,7 @@ export default function Homepage({homePagedata}) {
         <>
             <div>
                 <div className='w-full h-[600px] relative'>
-                    <div className='bg-transparent bg-no-repeat bg-cover bg-center-top w-full h-full' style={{ backgroundImage: `url(${process.env.PUBLIC_SITE_URL}${homePagedata.homepage_banner.bannerimg.data.attributes.url})` }}>
+                    <div className='bg-transparent bg-no-repeat bg-cover bg-center-top w-full h-full' style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_SITE_URL}${homePagedata.homepage_banner.bannerimg.data.attributes.url})` }}>
                         <div className='absolute inset-0 flex items-center justify-center'>
                             <div className='text-white text-center'>
                                 <h1 className='text-[50px] font-bold'>{homePagedata.homepage_banner.bannerinfo[0].title}</h1>
@@ -54,7 +54,7 @@ export default function Homepage({homePagedata}) {
                         <div className='grid grid-cols-2 gap-3 min-h-[250px] pt-[10px] pb-[10px]'>
                             {
                                 homePagedata.gallery_section.galleryImage.map((gallery, index) => (
-                                    <div key={index} className='bg-transparent bg-no-repeat bg-cover bg-[50%] w-full h-full relative' style={{ backgroundImage: `url(${process.env.PUBLIC_SITE_URL}${gallery.image.data.attributes.url})` }}>
+                                    <div key={index} className='bg-transparent bg-no-repeat bg-cover bg-[50%] w-full h-full relative' style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_SITE_URL}${gallery.image.data.attributes.url})` }}>
                                         <div className='absolute inset-0 flex items-center justify-center'>
                                             <div className='text-white text-center'>
                                                 <h1 className='text-[42px] font-semibold'>{gallery.title}</h1>
@@ -73,7 +73,7 @@ export default function Homepage({homePagedata}) {
                         <div className='grid grid-cols-4 gap-3 min-h-[600px] pt-[10px] pb-[30px]'>
                             {
                                 homePagedata.gallery_section1.galleryImage.map((gallery, index) => (
-                                    <div key={index} className='bg-transparent bg-no-repeat bg-cover bg-[50%] w-full h-full relative' style={{ backgroundImage: `url(${process.env.PUBLIC_SITE_URL}${gallery.image.data.attributes.url})` }}>
+                                    <div key={index} className='bg-transparent bg-no-repeat bg-cover bg-[50%] w-full h-full relative' style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_SITE_URL}${gallery.image.data.attributes.url})` }}>
                                         <div className='relative h-full'>
                                             <div className='absolute bottom-0 p-[35px] w-full text-white text-center'>
                                                 <h1 className='text-[24px] font-semibold'>{gallery.title}</h1>
@@ -105,7 +105,7 @@ export default function Homepage({homePagedata}) {
                             className="mySwiper w-[calc(100%_-_60px)]"
                         >
                             {homePagedata.ambassadors_content.slider.map((image, index) => (
-                                <SwiperSlide className='!mr-[46px] !w-[193px]' key={index}><Link href={`${image.link}`}><img src={`${process.env.PUBLIC_SITE_URL}${image.image.data.attributes.url}`} alt={image.alt} className='rounded-[10px]' /></Link></SwiperSlide>
+                                <SwiperSlide className='!mr-[46px] !w-[193px]' key={index}><Link href={`${image.link}`}><img src={`${process.env.NEXT_PUBLIC_SITE_URL}${image.image.data.attributes.url}`} alt={image.alt} className='rounded-[10px]' /></Link></SwiperSlide>
                             ))}
                         </Swiper>
                     </div>
@@ -147,7 +147,7 @@ export default function Homepage({homePagedata}) {
                                         <div className='px-[15px]'>
                                             <div className='mb-6 relative'>
                                                 <Link href="">
-                                                    <img src={`${process.env.PUBLIC_SITE_URL}${image.image.data.attributes.url}`} alt={image.alt} className='' />
+                                                    <img src={`${process.env.NEXT_PUBLIC_SITE_URL}${image.image.data.attributes.url}`} alt={image.alt} className='' />
                                                 </Link>
                                                 <span className='bg-white absolute py-[10px] pr-[7px] bottom-0 '>
                                                     Blog
