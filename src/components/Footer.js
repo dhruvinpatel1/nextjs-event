@@ -49,7 +49,7 @@ export default function Footer({ footer }) {
             className="mySwiper"
           >
             {footer.top_Footer.Sponser.map((image, index) => (
-              <SwiperSlide key={index}><Link href={image.link}><img src={`${process.env.PUBLIC_SITE_URL}${image.Image.data.attributes.url}`} alt={image.alt} /></Link></SwiperSlide>
+              <SwiperSlide key={index}><Link href={image.link}><img src={`${process.env.NEXT_PUBLIC_SITE_URL}${image.Image.data.attributes.url}`} alt={image.alt} /></Link></SwiperSlide>
             ))}
           </Swiper>
         </div>
