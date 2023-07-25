@@ -42,8 +42,7 @@ export default function Homepage({ homePagedata }) {
                                 <h2 className='text-[24px]'>{banner.bannerinfo[2].title}</h2>
                             </div>
                         </div>}
-                        {/* <Image src={`${process.env.NEXT_PUBLIC_SITE_URL}${banner.bannerimg.data.attributes.url}`} alt="home slider" layout="fill" className="!relative" /> */}
-                        <img src={`${process.env.NEXT_PUBLIC_SITE_URL}${banner.bannerimg.data.attributes.url}`} alt='qww'/>
+                        <Image src={`${process.env.NEXT_PUBLIC_SITE_URL}${banner.bannerimg.data.attributes.url}`} alt="home slider" layout="fill" className="!relative" />
                     </SwiperSlide>))}
                 </Swiper>
                 {/* <div className='w-full h-[600px] relative'>
