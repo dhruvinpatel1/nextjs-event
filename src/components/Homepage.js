@@ -7,8 +7,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 import 'swiper/css';
+import Head from 'next/head';
 
 export default function Homepage({homePagedata}) {
+
+    console.log("homePagedata.seo",homePagedata.seo)
 
     function formatDateToCustomFormat(dateArray) {
         const dateObject = new Date(dateArray);
@@ -24,6 +27,10 @@ export default function Homepage({homePagedata}) {
     
     return (
         <>
+            <Head>
+                <title>{homePagedata.seo.metaTitle}</title>
+                <meta name="description" content={homePagedata.seo.metaDescription}></meta>
+            </Head>
             <div>
                 <div className='w-full h-[600px] relative'>
                     <div className='bg-transparent bg-no-repeat bg-cover bg-center-top w-full h-full' style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_SITE_URL}${homePagedata.homepage_banner.bannerimg.data.attributes.url})` }}>
