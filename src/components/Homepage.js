@@ -4,27 +4,29 @@ import Link from 'next/link';
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid'
 import { CalendarIcon, ArrowLeftCircleIcon, ArrowRightCircleIcon } from '@heroicons/react/24/outline'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation,Pagination } from 'swiper/modules';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination'
 import 'swiper/css';
 import Head from 'next/head';
+import Image from 'next/image';
 
-export default function Homepage({homePagedata}) {
+export default function Homepage({ homePagedata }) {
 
-    console.log("homePagedata.seo",homePagedata.seo)
+    console.log("homePagedata", homePagedata.homepage_bannerslider)
 
     function formatDateToCustomFormat(dateArray) {
         const dateObject = new Date(dateArray);
-    
+
         const options = {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
         };
 
         return dateObject.toLocaleDateString("en-US", options);
-      }
-    
+    }
+
     return (
         <>
             <Head>
@@ -32,7 +34,20 @@ export default function Homepage({homePagedata}) {
                 <meta name="description" content={homePagedata.seo.metaDescription}></meta>
             </Head>
             <div>
-                <div className='w-full h-[600px] relative'>
+                <Swiper pagination={{ clickable: true, }} loop={true} navigation={true} autoplay={true} modules={[Pagination, Navigation, Autoplay]} className="">
+                    {homePagedata.homepage_bannerslider.map((banner, index) => (
+                    <SwiperSlide className='unset-img lg:!max-h-[600px] sm:!max-h-[400px] !max-h-[203px] '>
+                        {banner.bannerinfo.length > 0 && <div className='absolute inset-0 flex items-center justify-center z-10'>
+                            <div className='text-white text-center'>
+                                <h1 className='text-[50px] font-bold'>{banner.bannerinfo[0].title}</h1>
+                                <h1 className='text-[50px] font-bold'>{banner.bannerinfo[1].title}</h1>
+                                <h2 className='text-[24px]'>{banner.bannerinfo[2].title}</h2>
+                            </div>
+                        </div>}
+                        <Image src={`${process.env.NEXT_PUBLIC_SITE_URL}${banner.bannerimg.data.attributes.url}`} alt="home slider" layout="fill" className="!relative" />
+                    </SwiperSlide>))}
+                </Swiper>
+                {/* <div className='w-full h-[600px] relative'>
                     <div className='bg-transparent bg-no-repeat bg-cover bg-center-top w-full h-full' style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_SITE_URL}${homePagedata.homepage_banner.bannerimg.data.attributes.url})` }}>
                         <div className='absolute inset-0 flex items-center justify-center'>
                             <div className='text-white text-center'>
@@ -42,7 +57,7 @@ export default function Homepage({homePagedata}) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="relative container !max-w-[1290px] mx-auto">
                     <div className="text-center pt-[90px] pb-[55px]">
                         <p className='font-bold uppercase text-xs mb-[15px]'>{homePagedata.homepage_content.title1}</p>
