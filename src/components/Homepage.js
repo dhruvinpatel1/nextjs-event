@@ -45,7 +45,7 @@ export default function Homepage({homePagedata}) {
                             <div className='text-left leading-8 font-normal text-[#767171]'>{parse(homePagedata.homepage_content.right_content)}</div>
                         </div>
                         <div className='pt-[20px]'>
-                            <Link href={homePagedata.homepage_content.button_link} className="py-6 px-11 bg-[#9E0851] text-white "><span className='pr-4'>{homePagedata.homepage_content.button_label}</span><ArrowLongRightIcon className='w-7 h-7 inline-block' /></Link>
+                            <Link href={homePagedata.homepage_content.buttonLink} className="py-6 px-11 bg-[#9E0851] text-white "><span className='pr-4'>{homePagedata.homepage_content.buttonLabel}</span><ArrowLongRightIcon className='w-7 h-7 inline-block' /></Link>
                         </div>
                     </div>
                     <div className="text-center pt-[70px]">

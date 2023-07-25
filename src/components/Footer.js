@@ -48,7 +48,7 @@ export default function Footer({ footer }) {
             modules={[Autoplay]}
             className="mySwiper"
           >
-            {footer.top_Footer.Sponser.map((image, index) => (
+            {footer.top_Footer.SponserSlider.map((image, index) => (
               <SwiperSlide key={index}><Link href={image.link}><img src={`${process.env.NEXT_PUBLIC_SITE_URL}${image.Image.data.attributes.url}`} alt={image.alt} /></Link></SwiperSlide>
             ))}
           </Swiper>
