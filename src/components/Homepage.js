@@ -13,8 +13,6 @@ import Image from 'next/image';
 
 export default function Homepage({ homePagedata }) {
 
-    console.log("homePagedata", homePagedata.homepage_bannerslider)
-
     function formatDateToCustomFormat(dateArray) {
         const dateObject = new Date(dateArray);
 
@@ -36,7 +34,7 @@ export default function Homepage({ homePagedata }) {
             <div>
                 <Swiper pagination={{ clickable: true, }} loop={true} navigation={true} autoplay={true} modules={[Pagination, Navigation, Autoplay]} className="">
                     {homePagedata.homepage_bannerslider.map((banner, index) => (
-                    <SwiperSlide className='unset-img lg:!max-h-[600px] sm:!max-h-[400px] !max-h-[203px] '>
+                    <SwiperSlide key={index} className='unset-img lg:!max-h-[600px] sm:!max-h-[400px] !max-h-[203px] '>
                         {banner.bannerinfo.length > 0 && <div className='absolute inset-0 flex items-center justify-center z-10'>
                             <div className='text-white text-center'>
                                 <h1 className='text-[50px] font-bold'>{banner.bannerinfo[0].title}</h1>
